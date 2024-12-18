@@ -13,7 +13,7 @@ class Game {
 
     let speed = this.getSpeedBasedOnLevel();
     this.container = new Jar(10, 350, 25, 70, 5);
-    this.fallobj = new FallingObj(5, random(10, 400), 0);
+    this.fallobj = new FallingObj(speed, random(10, 400), 0);
     //change the first value to speed as speed is a different variable.
     //changed this value manually to test out the meteors speed.
   }
@@ -40,14 +40,13 @@ class Game {
 
         music.stop();
         over.play();
-        // getout.loop();
-        // getout.play();
+        
       }
     } else {
       if (keyIsPressed && keyCode === ENTER && game.gameload == false) {
         this.resetGame();
         music.play();
-        sigma.stop();
+        
       } else if (mouseIsPressed) {
         this.resetGame();
         music.play();
@@ -81,9 +80,7 @@ class Game {
 
       // Reset alignment for future text
       textAlign(LEFT, TOP);
-      if (keyCode === 49) {
-        sigma.play();
-      }
+      
     }
   }
 
