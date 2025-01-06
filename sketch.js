@@ -1,3 +1,5 @@
+
+
 let game;
 let music;
 let click;
@@ -13,13 +15,10 @@ function preload() {
   music = loadSound("music.mp3");
   click =loadSound("pop.mp3");
   over= loadSound("gameover.mp3");
- 
+  
   
   bg= loadImage("bg.png");
-  
-
 }
-
 function setup() {
   createCanvas(400, 410);
   
@@ -28,19 +27,10 @@ function setup() {
   music.loop();
   music.play()
   noStroke();
-  
-  
-  
-  
 }
 
-function draw() {
-  
-  
+function draw() { 
   game.update();
-  game.display();
-  
-
-  
+  game.display(); 
 }
 
