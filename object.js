@@ -1,3 +1,4 @@
+
 class Game {
   constructor(level) {
     this.level = level;
@@ -16,6 +17,7 @@ class Game {
     this.fallobj = new FallingObj(speed, random(10, 400), 0);
     //change the first value to speed as speed is a different variable.
     //changed this value manually to test out the meteors speed.
+    this.button = new Button(30,30,30,30);
   }
 
   getSpeedBasedOnLevel() {
@@ -29,6 +31,7 @@ class Game {
   }
 
   update() {
+   
     if (this.gameload) {
       this.fallobj.update();
       if (this.fallobj.checkCollision(this.container)) {
@@ -40,7 +43,7 @@ class Game {
 
         music.stop();
         over.play();
-        
+
       }
     } else {
       if (keyIsPressed && keyCode === ENTER && game.gameload == false) {
@@ -93,6 +96,14 @@ class Game {
     this.score = 0;
     this.gameload = true;
     this.fallobj.reset();
+  }
+  gamestart(){
+    this.score = 0;
+    this.gameload=false;
+    this.fallobj.reset();
+    rect(20,20,20,20);
+   
+    
   }
 }
 class FallingObj {
@@ -164,4 +175,21 @@ class Heart {
   constructor(heart) {
     this.heart = heart;
   }
+}
+class Button{
+  constructor(bX,bY,bH,bW){
+    this.bX=bX;
+    this.bY=bY;
+    this.bW=bW;
+    this.bH=bH;}
+    clicked(){
+    if( mouseX >bX && mouseX<bW && mouseY >bY && mouseY < bH && mouseIsPressed){
+      return true;
+    }
+      }
+    
+    
+    
+  
+  
 }
